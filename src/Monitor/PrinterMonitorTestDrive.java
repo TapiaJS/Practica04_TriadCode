@@ -1,8 +1,6 @@
 package Monitor;
 
-import singleton.Printer;
-
-public class PrinterTestDrive {
+public class PrinterMonitorTestDrive {
     public static void main(String[] args) {
 
         //Programar lo que te va a mostrar el monitor de las impresiones

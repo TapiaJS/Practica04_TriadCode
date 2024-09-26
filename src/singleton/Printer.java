@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Printer extends UnicastRemoteObject implements PrinterRemote {
-    private static final long seralVersionUID = 2L;
+    private static final long serialVersionUID = 2L;
     private Employ employ;
     private State state;
     private Queue<String> queuePrinter;
