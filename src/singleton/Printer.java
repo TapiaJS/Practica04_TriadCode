@@ -2,6 +2,7 @@ package singleton;
 
 import proxy.Employ;
 import proxy.PrinterRemote;
+import proxy.PrinterState;
 import proxy.State;
 
 import java.rmi.*;
@@ -19,6 +20,8 @@ public class Printer extends UnicastRemoteObject implements PrinterRemote {
     private Printer() throws RemoteException {
         queuePrinter = new LinkedList<>();
         state.waitingPrint();
+        state = new PrinterState();
+        employ = null;
     }
 
     // el patrón singleton para que solo haya una instancia es nuestra impresora
