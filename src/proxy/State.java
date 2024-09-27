@@ -1,6 +1,6 @@
 package proxy;
 
-import java.io.Serializable;
+import java.io.*;
 
 public interface State extends Serializable {
     // agregar los posibles estados
