@@ -5,7 +5,7 @@ import proxy.PrinterRemote;
 import java.rmi.*;
 
 public class PrinterMonitor {
-    PrinterRemote printer;
+    private PrinterRemote printer;
 
     public PrinterMonitor(PrinterRemote printer) {
         this.printer = printer;
