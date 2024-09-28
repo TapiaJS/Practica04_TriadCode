@@ -1,5 +1,4 @@
-package monitor;
-
+import monitor.PrinterMonitor;
 import proxy.PrinterRemote;
 
 import java.rmi.Naming;

@@ -11,22 +11,22 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Printer extends UnicastRemoteObject implements PrinterRemote {
-    private static Printer printerUniqueInstance;
     private static final long serialVersionUID = 2L;
+    private static Printer printerUniqueInstance;
+    private State state;
     private Queue<String> printerQueue;
     private Queue<Employ> employQueue;
-    private State state;
     private Employ employ;
 
     private Printer() throws RemoteException {
+        state = new WaitingState(this);  // Estado inicial de la impresora
         printerQueue = new LinkedList<>();
         employQueue = new LinkedList<>();
-        state = new WaitingState(this);  // Estado inicial de la impresora
         employ = null;
     }
 
     // el patron singleton para que solo haya una instancia es nuestra impresora
-    public static Printer getInstance() {
+    public static Printer getInstance(){
         if(printerUniqueInstance == null) {
             try {
                 printerUniqueInstance = new Printer();
