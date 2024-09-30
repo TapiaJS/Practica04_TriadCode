@@ -19,11 +19,5 @@ public class PrinterTestDrive {
         } catch (Exception e){
             e.printStackTrace();
         }
-
-        // implementar main
-        System.out.println("Bienvenido al sistema de impresion remota");
-        // programar que pueda perdir
-        System.out.println("");
-
     }
 }
