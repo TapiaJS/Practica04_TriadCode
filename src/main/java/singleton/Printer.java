@@ -25,8 +25,12 @@ public class Printer extends UnicastRemoteObject implements PrinterRemote {
         employ = null;
     }
 
+    public Queue<String> getPrinterQueue() {
+        return printerQueue;
+    }
+
     // el patron singleton para que solo haya una instancia es nuestra impresora
-    public static Printer getInstance() {
+    public static synchronized Printer getInstance() {
         if(printerUniqueInstance == null) {
             try {
                 printerUniqueInstance = new Printer();
@@ -44,6 +48,7 @@ public class Printer extends UnicastRemoteObject implements PrinterRemote {
     public void addFile(String file, Employ employ){
         this.employQueue.add(employ);
         this.printerQueue.add(file);
+
         this.state.printing();
         this.state.printing();
     }
@@ -74,9 +79,10 @@ public class Printer extends UnicastRemoteObject implements PrinterRemote {
                 System.out.println(printerQueue.poll());
                 System.out.println("El documento se imprimio a color por: " + currentEmploy.getName());
                 return;
+            }else{
+                System.out.println(printerQueue.poll());
+                System.out.println("El documento se imprimio en blanco y negro por: " + currentEmploy.getName());
             }
-            System.out.println(printerQueue.poll());
-            System.out.println("El documento se imprimio en blanco y negro por: " + currentEmploy.getName());
         }
         state.printed();
         state.printed();

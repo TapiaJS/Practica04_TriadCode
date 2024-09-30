@@ -6,7 +6,7 @@ import java.rmi.Naming;
 
 public class PrinterMonitorTestDrive {
     public static void main(String[] args) {
-        String printerUrl = "rmi://dos.com/printer";
+        String printerUrl = "rmi://localhost/printer";
         PrinterMonitor monitor = null;
 
         try{

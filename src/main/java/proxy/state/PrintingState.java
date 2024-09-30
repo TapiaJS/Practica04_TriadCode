@@ -18,6 +18,12 @@ public class PrintingState implements State {
     @Override
     public void printing() {
         System.out.print("La impresora está imprimiendo:");
+        if(!printer.getPrinterQueue().isEmpty()) {
+            System.out.println(" " + printer.getPrinterQueue().poll());
+            if(printer.getPrinterQueue().isEmpty()) {
+                printed();
+            }
+        }
     }
 
     @Override

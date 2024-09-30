@@ -18,7 +18,11 @@ public class WaitingState implements State {
     @Override
     public void printing() {
         System.out.println("Cambiando estado a imprimiendo...");
-        printer.setState(new PrintingState(printer));  // Transición al estado de impresión
+        if(!printer.getPrinterQueue().isEmpty()){ // porque puede pasar que no haya en la cola
+            printer.setState(new PrintingState(printer));
+        }else{
+            printer.setState(new PrintingState(printer));  // Transición al estado de impresión
+        }
     }
 
     @Override

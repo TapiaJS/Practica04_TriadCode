@@ -16,6 +16,7 @@ public class PrinterTestDrive {
         try {
             printer = Printer.getInstance();
             Naming.rebind("//" + args[0] + "/printer", printer);
+            System.out.println("La impresora está disponible en: //" + args[0] + "/printer");
         } catch (Exception e){
             e.printStackTrace();
         }
